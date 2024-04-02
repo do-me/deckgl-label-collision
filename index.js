@@ -3,7 +3,7 @@ import { TextLayer, ScatterplotLayer } from '@deck.gl/layers';
 import { CollisionFilterExtension } from '@deck.gl/extensions';
 
 // Generate 1000 random data points with coordinates between 0 and 1
-const data = Array.from({ length: 100 }, () => ({
+const data = Array.from({ length: 1000 }, () => ({
     position: [Math.random(), Math.random()], // Coordinates between 0 and 1
     label: Math.random().toString(36).substring(2, 7),
   }));
