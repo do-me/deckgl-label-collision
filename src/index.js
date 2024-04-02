@@ -7,7 +7,7 @@ const data = Array.from({ length: 1000 }, () => ({
     position: [Math.random(), Math.random()], // Coordinates between 0 and 1
     label: Math.random().toString(36).substring(2, 7),
   }));
-  
+
 let tooltip = document.getElementById('tooltip');
 
 function showTooltip({ x, y, object }) {
