@@ -1,0 +1,22 @@
+<!doctype html><html><head><title>Deck.gl Scatterplot with Colliding Labels - SDG Example</title><style>body { margin: 0; padding: 0; }
+    #map { position: absolute; top: 0; right: 0; bottom: 40px; left: 0; }
+    #controls {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .control-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+    .control-group label {
+      margin-right: 10px;
+    }
+    .control-group input[type=range] {
+      margin-right: 5px;
+    }</style><script defer="defer" src="../load_json/load_json.bundle.js"></script></head><body><div id="map"></div><div id="controls"><div class="control-group"><label for="fontSizeSlider">Label Font Size</label> <input type="range" id="fontSizeSlider" min="1" max="300" value="30"/> <span id="fontSizeValue">30</span>px</div><div class="control-group"><label for="sizeMinPixelsSlider">Label Collision Size</label> <input type="range" id="sizeMinPixelsSlider" min="1" max="500" value="150"/> <span id="sizeMinPixelsValue">150</span>px</div></div><div id="tooltip" style="position: absolute; display: none; pointer-events: none; background: rgba(0, 0, 0, 0.8); color: #fff; padding: 4px; border-radius: 4px; font-size: 12px; z-index: 9;"></div><script src="load_json.js"></script></body></html>
