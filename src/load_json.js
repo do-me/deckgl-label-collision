@@ -2,6 +2,26 @@ import { Deck } from '@deck.gl/core';
 import { TextLayer, ScatterplotLayer } from '@deck.gl/layers';
 import { CollisionFilterExtension } from '@deck.gl/extensions';
 
+// Convert HEX color codes to RGB arrays
+function hexToRgb(hex) {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return [r, g, b];
+}
+
+const colorArray = [
+  "#E5243B", "#DDA63A", "#4C9F38", "#C5192D", "#FF3A21", "#26BDE2", "#FCC30B",
+  "#A21942", "#FD6925", "#DD1367", "#FD9D24", "#BF8B2E", "#3F7E44", "#0A97D9",
+  "#56C02B", "#00689D", "#19486A"
+];
+
+// Create the SDGColors object by converting each HEX color to RGB
+const SDGColors = colorArray.reduce((acc, color, index) => {
+  acc[index + 1] = hexToRgb(color);
+  return acc;
+}, {});
+
 // Fetch the remote JSON file and process it
 async function fetchData() {
   const response = await fetch("https://corsproxy.io/?https://github.com/do-me/SDG-Analyzer/raw/main/assets/SDG_Target_2023_jina_base_dim_reduction.json");
@@ -10,7 +30,7 @@ async function fetchData() {
   // Convert the object to an array of objects
   const dataArray = Object.keys(data.SDGNumber).map(key => ({
     SDGNumber: data.SDGNumber[key],
-    SDGTitle: data.SDGTitle ? data.SDGTitle[key] : null, // Ensure this line is correct
+    SDGTitle: data.SDGTitle ? data.SDGTitle[key] : null,
     TargetsNumber: data.TargetsNumber ? data.TargetsNumber[key] : null,
     Targets: data.Targets ? data.Targets[key] : null,
     x: data.x ? data.x[key] : null,
@@ -20,6 +40,7 @@ async function fetchData() {
   // Process data to fit the format for layers
   return dataArray.map(item => ({
     position: [item.x, item.y],
+    SDGNumber: item.SDGNumber,
     SDGTitle: item.SDGTitle,
     tooltipText: `SDGNumber: ${item.SDGNumber}<br>SDGTitle: ${item.SDGTitle}<br>TargetsNumber: ${item.TargetsNumber}<br>Targets: ${item.Targets}`,
   }));
@@ -49,8 +70,9 @@ function getScatterplotLayer() {
     id: 'scatterplot-layer',
     data: data,
     getPosition: d => d.position,
-    getFillColor: [255, 140, 0],
-    getRadius: 1,
+    getFillColor: d => SDGColors[d.SDGNumber] || [255, 255, 255], // Fallback to white if no color is defined
+    getRadius: 5,
+    radiusScale: 100,
     radiusMinPixels: 2,
     radiusMaxPixels: 30,
     pickable: true,
