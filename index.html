@@ -1,5 +1,17 @@
-<!doctype html><html><head><title>Deck.gl Scatterplot with Colliding Labels</title><style>body { margin: 0; padding: 0; }
-    #map { position: absolute; top: 0; right: 0; bottom: 40px; left: 0; }
+<!doctype html><html><head><title>Deck.gl Scatterplot with Colliding Labels</title><style>body {
+      margin: 0;
+      padding: 0;
+      font-family: Open Sans;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 40px;
+      left: 0;
+    }
+
     #controls {
       position: absolute;
       left: 10px;
@@ -9,14 +21,31 @@
       flex-direction: column;
       align-items: flex-start;
     }
+
     .control-group {
       display: flex;
       align-items: center;
       margin-bottom: 5px;
     }
+
     .control-group label {
       margin-right: 10px;
     }
+
     .control-group input[type=range] {
       margin-right: 5px;
-    }</style><script defer="defer" src="index.bundle.js"></script></head><body><div id="map"></div><div id="controls"><div class="control-group"><label for="fontSizeSlider">Label Font Size</label> <input type="range" id="fontSizeSlider" min="1" max="300" value="30"/> <span id="fontSizeValue">30</span>px</div><div class="control-group"><label for="sizeMinPixelsSlider">Label Collision Size</label> <input type="range" id="sizeMinPixelsSlider" min="1" max="500" value="150"/> <span id="sizeMinPixelsValue">150</span>px</div></div><div id="tooltip" style="position: absolute; display: none; pointer-events: none; background: rgba(0, 0, 0, 0.8); color: #fff; padding: 4px; border-radius: 4px; font-size: 12px; z-index: 9;"></div><script src="index.js"></script></body></html>
+    }
+
+    #tooltip {
+      position: absolute;
+      display: none;
+      pointer-events: none;
+      background: rgba(0, 0, 0, 0.8);
+      color: #efefef;
+      padding: 4px;
+      border-radius: 14px;
+      font-size: 26px;
+      z-index: 9;
+      max-width: 50%;
+      padding: 20px;
+    }</style><script defer="defer" src="index.bundle.js"></script></head><body><div id="map"></div><div id="controls"><div class="control-group"><label for="fontSizeSlider">Label Font Size</label> <input type="range" id="fontSizeSlider" min="1" max="300" value="30"/> <span id="fontSizeValue">30</span>px</div><div class="control-group"><label for="sizeMinPixelsSlider">Label Collision Size</label> <input type="range" id="sizeMinPixelsSlider" min="1" max="500" value="150"/> <span id="sizeMinPixelsValue">150</span>px</div></div><div id="tooltip"></div><script src="index.js"></script></body></html>
