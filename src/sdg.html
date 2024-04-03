@@ -2,12 +2,18 @@
 <html>
 
 <head>
-  <title>Deck.gl Scatterplot with Colliding Labels</title>
+  <title>Deck.gl Scatterplot with Colliding Labels - SDG Example</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: Open Sans;
+    }
+
+    #title-container {
+      text-align: center;
+      position: relative;
+      z-index: 100;
     }
 
     #map {
@@ -50,31 +56,34 @@
       color: #efefef;
       padding: 4px;
       border-radius: 14px;
-      font-size: 26px;
+      font-size: 18px;
       z-index: 9;
       max-width: 50%;
       padding: 20px;
     }
-    
   </style>
 </head>
 
 <body>
+  <div id="title-container">
+  <h2>Sustainable Development Goals - Visualizing 169 Targets</h2>
+  <h3>jinai/jina-embeddings-v2-base-en reduced with tSNE, plotted with deck.gl | <a href="https://github.com/do-me/deckgl-label-collision" target="_blank">GitHub</a> | <a href="https://github.com/do-me/SDG-Analyzer/" target="_blank">Data Source</a></h3>
+</div>
   <div id="map"></div>
   <div id="controls">
     <div class="control-group">
       <label for="fontSizeSlider">Label Font Size</label>
-      <input type="range" id="fontSizeSlider" min="1" max="300" value="30" />
-      <span id="fontSizeValue">30</span>px
+      <input type="range" id="fontSizeSlider" min="1" max="300" value="24" />
+      <span id="fontSizeValue">24</span>px
     </div>
     <div class="control-group">
       <label for="sizeMinPixelsSlider">Label Collision Size</label>
-      <input type="range" id="sizeMinPixelsSlider" min="1" max="500" value="150" />
-      <span id="sizeMinPixelsValue">150</span>px
+      <input type="range" id="sizeMinPixelsSlider" min="1" max="500" value="96" />
+      <span id="sizeMinPixelsValue">96</span>px
     </div>
   </div>
   <div id="tooltip"></div>
-  <script src="index.js"></script>
+  <script src="sdg.js"></script>
 </body>
 
 </html>

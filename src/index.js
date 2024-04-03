@@ -35,7 +35,6 @@ const getScatterplotLayer = () => new ScatterplotLayer({
   onHover: showTooltip,
 });
 
-
 // Initial fontSize and sizeMinPixels values for the text layer
 let fontSize = parseInt(document.getElementById('fontSizeSlider').value);
 let sizeMinPixels = parseInt(document.getElementById('sizeMinPixelsSlider').value);

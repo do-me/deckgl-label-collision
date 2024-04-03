@@ -3,6 +3,14 @@ A basic scatterplot example with deck.gl avoiding label collision.
 
 Two sliders dynamically set the label font size and the label collision size (the "buffer" around the labels). 
 
+## Examples
+
+### Visualizing tSNE for 169 SDG targets
+Interactive App: https://do-me.github.io/deckgl-label-collision/sdg
+![sdg_labels](sdg_labels.png)
+
+### Generating arbitrary sample data 
+Interactive App: https://do-me.github.io/deckgl-label-collision
 ![deckgl_label_collision](deckgl_label_collision.png)
 
 ## Why? 

@@ -24,7 +24,7 @@ const SDGColors = colorArray.reduce((acc, color, index) => {
 
 // Fetch the remote JSON file and process it
 async function fetchData() {
-  const response = await fetch("https://corsproxy.io/?https://github.com/do-me/SDG-Analyzer/raw/main/assets/SDG_Target_2023_jina_base_dim_reduction.json");
+  const response = await fetch("https://github.com/do-me/SDG-Analyzer/raw/main/assets/SDG_Target_2023_jina_base_dim_reduction.json");
   const data = await response.json();
 
   // Convert the object to an array of objects
@@ -51,8 +51,8 @@ let deck; // Store the deck instance
 let data; // Store the fetched data
 
 // Initial fontSize and sizeMinPixels values for the text layer
-let fontSize = 32; // set a default or calculate based on your needs
-let sizeMinPixels = 10; // set a default or calculate based on your needs
+let fontSize = parseInt(document.getElementById('fontSizeSlider').value);
+let sizeMinPixels = parseInt(document.getElementById('sizeMinPixelsSlider').value);
 
 function showTooltip({ x, y, object }) {
   if (object) {
@@ -90,7 +90,6 @@ function getTextLayer() {
     getSize: fontSize,
     extensions: [new CollisionFilterExtension()],
     collisionEnabled: true,
-    getPixelOffset: [0, +20],
     collisionTestProps: {
       radiusScale: 200,
       sizeMinPixels: sizeMinPixels,

@@ -5,12 +5,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   entry: {
     index: './src/index.js',
-    load_json: './src/load_json.js'
+    sdg: './src/sdg.js'
   },
   mode: 'development',
   output: {
     filename: (chunkData) => {
-      return chunkData.chunk.name === 'load_json' ? 'load_json/[name].bundle.js' : '[name].bundle.js';
+      return chunkData.chunk.name === 'sdg' ? 'sdg/[name].bundle.js' : '[name].bundle.js';
     },
     path: path.resolve(__dirname, 'dist'),
     clean: true
@@ -46,9 +46,9 @@ module.exports = {
       chunks: ['index'],
     }),
     new HtmlWebpackPlugin({
-      filename: 'load_json/index.html',
-      template: './src/load_json.html',
-      chunks: ['load_json'],
+      filename: 'sdg/index.html',
+      template: './src/sdg.html',
+      chunks: ['sdg'],
     }),
     new MiniCssExtractPlugin(),
   ],
