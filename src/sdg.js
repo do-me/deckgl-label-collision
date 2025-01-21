@@ -24,7 +24,7 @@ const SDGColors = colorArray.reduce((acc, color, index) => {
 
 // Fetch the remote JSON file and process it
 async function fetchData() {
-  const response = await fetch("https://corsproxy.io/?https://github.com/do-me/SDG-Analyzer/raw/main/assets/SDG_Target_2023_jina_base_dim_reduction.json");
+  const response = await fetch("https://raw.githubusercontent.com/do-me/SDG-Analyzer/main/assets/SDG_Target_2023_jina_base_dim_reduction.json");
   const data = await response.json();
 
   // Convert the object to an array of objects
